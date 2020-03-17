@@ -1,6 +1,8 @@
 # mock
 you caN'T coNVeY sArCASM tROugH WRitTeN tExT
 
+Works on Linux, Windows and MacOS.
+
 # Installation
 
 1. `mkdir ~/bin`
