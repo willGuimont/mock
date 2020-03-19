@@ -22,20 +22,34 @@ def to_clipboard(x):
         subprocess.run(f'echo -n "{x}" | clip', shell=True)
 
 
+def run_mock(message, probability, copy, quiet):
+    output = irony(message, probability)
+    if copy:
+        to_clipboard(output)
+    if not quiet:
+        print(output)
+
+
 if __name__ == '__main__':
     import argparse
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument('message', help='message to ironify')
-    parser.add_argument('-x', '--copy', help='copy ironyc message to clipboard', action='store_true')
-    parser.add_argument('-p', '--probability', help='probability of upper case letters', type=float, default=0.5)
-    parser.add_argument('-q', '--quiet', help='does not print to terminal', action='store_true')
+    parser = argparse.ArgumentParser(description='The best tool to convey sarcasm')
+    parser.add_argument('message', help='message to ironify, alternatively you can pipe text into mock', nargs='?')
+    parser.add_argument('-x', '--copy',
+                        help='copy ironyc message to clipboard, only works with "message" argument',
+                        action='store_true')
+    parser.add_argument('-p', '--probability', help='probability [0, 1] of upper case letters', type=float, default=0.5)
+    parser.add_argument('-q', '--quiet', help='does not print to terminal, only works with "message" argument',
+                        action='store_true')
     args = parser.parse_args()
 
-    output = irony(args.message, args.probability)
+    probability = args.probability
+    copy = args.copy
+    quiet = args.quiet
 
-    if args.copy:
-        to_clipboard(output)
-
-    if not args.quiet:
-        print(output)
+    if args.message is not None:
+        run_mock(args.message, probability, copy, quiet)
+    else:
+        args.copy = False
+        for line in sys.stdin:
+            run_mock(line.replace('\n', ''), probability, False, False)
