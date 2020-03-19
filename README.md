@@ -11,6 +11,11 @@ Works on Linux, Windows and MacOS.
 4. Add `PATH=$PATH:$HOME/bin` at the end of your `~/.bashrc`
 5. Use with `mock "You can't convey sarcasm trough written text"`
 
+# Usage
+`mock "You can't convey sarcasm trough written text" -p 0.75 -x -q`
+
+`echo "You can't convey sarcasm trough written text" | mock`
+
 # Parameters
 `mock --help`
 >usage: mock [-h] [-x] [-p PROBABILITY] [-q] message
