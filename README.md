@@ -5,11 +5,12 @@ Works on Linux, Windows and MacOS.
 
 # Installation
 
-1. `mkdir ~/bin`
-2. Copy mock into `~/bin`
-3. `chmod +x ~/bin/mock`
-4. Add `PATH=$PATH:$HOME/bin` at the end of your `~/.bashrc`
-5. Use with `mock "You can't convey sarcasm trough written text"`
+1. Install `xclip`
+2. `mkdir ~/bin`
+3. Copy mock into `~/bin`
+4. `chmod +x ~/bin/mock`
+5. Add `PATH=$PATH:$HOME/bin` at the end of your `~/.bashrc`
+6. Use with `mock "You can't convey sarcasm trough written text"`
 
 # Usage
 `mock "You can't convey sarcasm trough written text" -p 0.75 -x -q`
