@@ -17,16 +17,28 @@ Works on Linux, Windows and MacOS.
 
 `echo "You can't convey sarcasm trough written text" | mock`
 
+## Interactive mode
+`mock` then type sentences to mock.
+
 # Parameters
 `mock --help`
->usage: mock [-h] [-x] [-p PROBABILITY] [-q] message
+> usage: ironyc.py [-h] [-x] [-p PROBABILITY] [-q] [message]
 >
->positional arguments:
->  message               message to ironify
+> The best tool to convey sarcasm
 >
->optional arguments:
+> positional arguments:
+>
+>  message               message to ironify, alternatively you can pipe text into mock
+>
+> optional arguments:
+>
 >  -h, --help            show this help message and exit
->  -x, --copy            copy ironyc message to clipboard
+>
+>  -x, --copy            copy ironyc message to clipboard, only works with last piped line
+> 
 >  -p PROBABILITY, --probability PROBABILITY
->                        probability of upper case letters
+> 
+>                        probability [0, 1] of upper case letters
+> 
 >  -q, --quiet           does not print to terminal
+
