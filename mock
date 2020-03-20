@@ -36,10 +36,10 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='The best tool to convey sarcasm')
     parser.add_argument('message', help='message to ironify, alternatively you can pipe text into mock', nargs='?')
     parser.add_argument('-x', '--copy',
-                        help='copy ironyc message to clipboard, only works with "message" argument',
+                        help='copy ironyc message to clipboard, only works with last piped line',
                         action='store_true')
     parser.add_argument('-p', '--probability', help='probability [0, 1] of upper case letters', type=float, default=0.5)
-    parser.add_argument('-q', '--quiet', help='does not print to terminal, only works with "message" argument',
+    parser.add_argument('-q', '--quiet', help='does not print to terminal',
                         action='store_true')
     args = parser.parse_args()
 
@@ -52,4 +52,4 @@ if __name__ == '__main__':
     else:
         args.copy = False
         for line in sys.stdin:
-            run_mock(line.replace('\n', ''), probability, False, False)
+            run_mock(line.replace('\n', ''), probability, copy, quiet)
