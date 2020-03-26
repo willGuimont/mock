@@ -12,7 +12,7 @@ def mockify(s: str, p: float):
     return ''.join(map(lambda x: random_case(x, p), s))
 
 
-def to_clipboard(x):
+def to_clipboard(x: str):
     os = sys.platform
     if os == 'linux':
         subprocess.run(f'echo -n "{x}" | xclip -sel clip', shell=True)
@@ -22,7 +22,7 @@ def to_clipboard(x):
         subprocess.run(f'echo -n "{x}" | clip', shell=True)
 
 
-def run_mock(message, probability, copy, quiet):
+def run_mock(message: str, probability: float, copy: bool, quiet: bool):
     output = mockify(message, probability)
     if copy:
         to_clipboard(output)
