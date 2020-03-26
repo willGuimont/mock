@@ -8,7 +8,7 @@ def random_case(x: str, p: float):
     return x.upper() if random.uniform(0, 1) <= p else x.lower()
 
 
-def irony(s: str, p: float):
+def mock(s: str, p: float):
     return ''.join(map(lambda x: random_case(x, p), s))
 
 
@@ -23,7 +23,7 @@ def to_clipboard(x):
 
 
 def run_mock(message, probability, copy, quiet):
-    output = irony(message, probability)
+    output = mock(message, probability)
     if copy:
         to_clipboard(output)
     if not quiet:
