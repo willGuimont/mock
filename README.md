@@ -22,23 +22,20 @@ Works on Linux, Windows and MacOS.
 
 # Parameters
 `mock --help`
-> usage: ironyc.py [-h] [-x] [-p PROBABILITY] [-q] [message]
->
-> The best tool to convey sarcasm
->
-> positional arguments:
->
->  message               message to ironify, alternatively you can pipe text into mock
->
-> optional arguments:
->
->  -h, --help            show this help message and exit
->
->  -x, --copy            copy ironyc message to clipboard, only works with last piped line
-> 
->  -p PROBABILITY, --probability PROBABILITY
-> 
->                        probability [0, 1] of upper case letters
-> 
->  -q, --quiet           does not print to terminal
+
+```shell
+usage: mock [-h] [-x] [-p PROBABILITY] [-q] [message]
+
+The best tool to convey sarcasm
+
+positional arguments:
+  message               message to ironify, alternatively you can pipe text into mock
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -x, --copy            copy ironyc message to clipboard, only works with last piped line
+  -p PROBABILITY, --probability PROBABILITY
+                        probability [0, 1] of upper case letters
+  -q, --quiet           does not print to terminal
+```
 
